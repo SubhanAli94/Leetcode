@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,5 +74,36 @@ public class MaximumNumOfBalloons {
         }
 
         return minimum;
+    }
+
+    public int maxNumberOfBalloons_improved(String text) {
+
+        int[] chars = new int[5];
+        int min = Integer.MAX_VALUE;
+        for (char c : text.toCharArray()) {
+            switch (c) {
+                case 'b':
+                    chars[0]++;
+                    break;
+                case 'a':
+                    chars[1]++;
+                    break;
+                case 'l':
+                    chars[2]++;
+                    break;
+                case 'o':
+                    chars[3]++;
+                    break;
+                case 'n':
+                    chars[4]++;
+                    break;
+            }
+        }
+
+        for (int i = 0; i < chars.length; i++) {
+            int res = ((i == 2) || (i == 3)) ? chars[i]/2 : chars[i];
+            min = Math.min(min, res);
+        }
+        return min;
     }
 }
