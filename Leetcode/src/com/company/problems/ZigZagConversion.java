@@ -1,4 +1,4 @@
-package com.company;
+package com.company.problems;
 
 public class ZigZagConversion {
     public String convert(String s, int numRows) {

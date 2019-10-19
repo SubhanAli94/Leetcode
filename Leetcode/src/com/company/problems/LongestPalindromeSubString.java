@@ -1,4 +1,4 @@
-package com.company;
+package com.company.problems;
 
 public class LongestPalindromeSubString {
     int maxLength;

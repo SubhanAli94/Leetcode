@@ -1,4 +1,4 @@
-package com.company.contest156;
+package com.company.problems;
 
 import java.util.*;
 import java.util.stream.Collectors;
