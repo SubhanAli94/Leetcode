@@ -3,7 +3,7 @@ package com.company.problems.ctci
 class ArraysAndStrings {
     companion object {
 
-        //using arrays
+        //using Boolean Array
         fun uniqueCharacters(inputStr: String): Boolean {
             if (inputStr.isNullOrEmpty() || inputStr.length > 128) return false
 
@@ -21,7 +21,7 @@ class ArraysAndStrings {
             return true
         }
 
-        //using arrayList
+        //using Char arrayList
         fun uniqueCharactersWithArrayList(inputStr: String): Boolean {
             if (inputStr.isNullOrEmpty()) return false
 
@@ -47,10 +47,10 @@ class ArraysAndStrings {
             for (c in inputStr) {
                 var charNum = c.toInt() - 'a'.toInt()
 
-                //check if there this bit is already set to 1 or not
+                //check if this bit is already set to 1 or not
                 if (checker and (1 shl charNum) > 0) return false
 
-                //shift left 1 by checker to turn that bit ON. Means to set that particular number to 1
+                //shift left 1 by charNum to turn that bit ON then OR with checker to turn that bit on in checker
                 checker = checker or (1 shl charNum)
             }
 
