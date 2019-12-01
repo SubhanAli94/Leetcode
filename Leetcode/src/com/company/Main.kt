@@ -20,7 +20,7 @@ object Main {
 
         //println(OneAway.oneAway("pale","ple"))
         //println(OneAway.oneAway("pales","pale"))
-        println(OneAway.oneAway("pale","pale"))
+        println(StringCompression.stringCompressionWithForwardLookup("aabccccc"))
         //println(OneAway.oneAway("pale","bake"))
 
 
