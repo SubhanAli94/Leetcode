@@ -1,9 +1,6 @@
 package com.company
 
-import com.company.problems.ctci.ArraysAndStrings.IsPermutation
-import com.company.problems.ctci.ArraysAndStrings.PalindromePermutation
-import com.company.problems.ctci.ArraysAndStrings.URLify
-import com.company.problems.ctci.ArraysAndStrings.UniqueCharacters
+import com.company.problems.ctci.ArraysAndStrings.*
 
 
 object Main {
@@ -21,7 +18,10 @@ object Main {
 
 
 
-        println(PalindromePermutation.palindromePermutationWithBitVector("Tact Coa"))
+        //println(OneAway.oneAway("pale","ple"))
+        //println(OneAway.oneAway("pales","pale"))
+        println(OneAway.oneAway("pale","pale"))
+        //println(OneAway.oneAway("pale","bake"))
 
 
         //        System.out.println(StringPermutations.Companion.checkInclusion("aapple", "123dw"));
