@@ -1,6 +1,7 @@
 package com.company
 
 import com.company.problems.ctci.ArraysAndStrings.IsPermutation
+import com.company.problems.ctci.ArraysAndStrings.PalindromePermutation
 import com.company.problems.ctci.ArraysAndStrings.URLify
 import com.company.problems.ctci.ArraysAndStrings.UniqueCharacters
 
@@ -20,7 +21,9 @@ object Main {
 
 
 
-        println(URLify.urlify("abc d b ".toCharArray(),8))
+        println(PalindromePermutation.palindromePermutationWithBitVector("Tact Coa"))
+
+
         //        System.out.println(StringPermutations.Companion.checkInclusion("aapple", "123dw"));
         //        System.out.println(RegularExpressionMatching.Companion.isMatch("a","a"));
         //        System.out.println(RegularExpressionMatching.Companion.isMatch("a","ab"));
