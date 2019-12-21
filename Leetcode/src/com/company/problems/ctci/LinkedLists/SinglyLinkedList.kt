@@ -41,14 +41,18 @@ object SinglyLinkedList {
         }
     }
 
-    fun addAtStart(n: Int) {
-        if (head == null) {
-            head = Node(n)
+    fun addAtStart(n: Int, head: Node? = null): Node {
+        var tempHead = head
+        if (tempHead == null) {
+            tempHead = Node(n)
         } else {
-            var temp = head
-            head = Node(n)
-            head!!.next = temp
+            var temp = tempHead
+            tempHead = Node(n)
+            tempHead!!.next = temp
         }
+
+        this.head = tempHead
+        return tempHead
     }
 
     fun deleteNode(n: Node) {
