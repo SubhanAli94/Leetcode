@@ -5,9 +5,6 @@ object SumLists {
         if (num1 == null) return num2
         if (num2 == null) return num1
 
-        //      1234
-        //      923
-        //ans   056
         var carry = 0
         var numb1: SinglyLinkedList.Node? = num1
         var numb2: SinglyLinkedList.Node? = num2
