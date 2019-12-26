@@ -12,16 +12,19 @@ object SinglyLinkedList {
 
     var head: Node? = null
 
-    fun appendToTail(value: Int) {
+    fun appendToTail(value: Int): Node {
+        var n = Node(value)
         if (head == null) {
-            head = Node(value)
+            head = n
         } else {
             var node: Node = head!!
             while (node.next != null) {
                 node = node.next!!
             }
-            node.next = Node(value)
+            node.next = n
         }
+
+        return n
     }
 
     fun deleteAtTail() {
@@ -41,6 +44,14 @@ object SinglyLinkedList {
         }
     }
 
+    fun nodeAtTail(node: Node): Node {
+        var n: Node? = node
+        while (n!!.next != null) {
+            n = n.next
+        }
+        return n
+    }
+
     fun addAtStart(n: Int, head: Node? = null): Node {
         var tempHead = head
         if (tempHead == null) {
@@ -53,6 +64,14 @@ object SinglyLinkedList {
 
         this.head = tempHead
         return tempHead
+    }
+
+    fun addAtTail(node: Node, head: Node) {
+        var n = head
+        while (n.next != null) {
+            n = n.next!!
+        }
+        n.next = node
     }
 
     fun deleteNode(n: Node) {
@@ -100,6 +119,18 @@ object SinglyLinkedList {
         } else {
             throw NullPointerException("Head is set to null. LinkedList is empty")
         }
+    }
+
+    fun length(node: Node): Int {
+        // 1 1 1
+        var count = 0
+        var n: Node? = node
+
+        while (n != null) {
+            n = n.next
+            count++
+        }
+        return count
     }
 
     class EmptyListException : Exception("Linked List is empty")
