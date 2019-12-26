@@ -67,4 +67,31 @@ object Palindrome {
 
         return true
     }
+
+    fun palindromeRecursive(node: SinglyLinkedList.Node, length: Int): Boolean {
+        when (length) {
+            0 -> return false
+            1 -> return true
+        }
+
+        return palindromeRecurseCall(node, length).result
+    }
+
+
+    //1 2 1
+    //1 1
+    data class Result(var node: SinglyLinkedList.Node?, var result: Boolean)
+
+    private fun palindromeRecurseCall(node: SinglyLinkedList.Node?, length: Int): Result {
+        when {
+            node == null || length == 0 -> return Result(node, true)
+            length == 1 -> return Result(node.next, true)
+        }
+
+        var res = palindromeRecurseCall(node!!.next!!, length - 2)
+
+        if (!res.result) return res
+
+        return Result(res.node!!.next, res.node!!.value == node.value)
+    }
 }
