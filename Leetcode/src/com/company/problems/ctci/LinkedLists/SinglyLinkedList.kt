@@ -12,7 +12,7 @@ object SinglyLinkedList {
 
     var head: Node? = null
 
-    fun appendToTail(value: Int): Node {
+    fun addValueToTail(value: Int): Node {
         var n = Node(value)
         if (head == null) {
             head = n
@@ -66,7 +66,7 @@ object SinglyLinkedList {
         return tempHead
     }
 
-    fun addAtTail(node: Node, head: Node) {
+    fun addNodeAtTail(node: Node, head: Node) {
         var n = head
         while (n.next != null) {
             n = n.next!!
