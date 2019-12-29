@@ -4,11 +4,11 @@ import com.company.problems.ctci.LinkedLists.SinglyLinkedList
 import com.company.problems.ctci.Utils.Node
 import java.lang.NullPointerException
 
-class Stack {
+open class Stack {
 
-    private var head: Node? = null
+    protected var head: Node? = null
 
-    fun push(value: Int) {
+    open fun push(value: Int) {
         when (head) {
             null -> head = Node(value)
             else -> {
@@ -19,7 +19,7 @@ class Stack {
         }
     }
 
-    fun pop() {
+    open fun pop() {
         head = head?.next
     }
 
