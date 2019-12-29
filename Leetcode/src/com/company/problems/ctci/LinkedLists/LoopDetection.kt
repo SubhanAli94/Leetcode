@@ -1,10 +1,12 @@
 package com.company.problems.ctci.LinkedLists
 
-object LoopDetection {
-    fun loopDetection(node: SinglyLinkedList.Node): SinglyLinkedList.Node? {
+import com.company.problems.ctci.Utils.Node
 
-        var slowRunner: SinglyLinkedList.Node? = node
-        var fastRunner: SinglyLinkedList.Node? = node
+object LoopDetection {
+    fun loopDetection(node: Node): Node? {
+
+        var slowRunner: Node? = node
+        var fastRunner: Node? = node
 
         while (slowRunner?.next != null && fastRunner?.next != null) {
 

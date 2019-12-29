@@ -1,12 +1,14 @@
 package com.company.problems.ctci.LinkedLists
 
+import com.company.problems.ctci.Utils.Node
+
 object Partition {
-    fun partition(node: SinglyLinkedList.Node, x: Int): SinglyLinkedList.Node {
+    fun partition(node: Node, x: Int): Node {
         if (node == null) println("Empty List")
 
         var head = node
         var tail = node
-        var current: SinglyLinkedList.Node? = node
+        var current: Node? = node
         while (current != null) {
             var next = current.next
             when {

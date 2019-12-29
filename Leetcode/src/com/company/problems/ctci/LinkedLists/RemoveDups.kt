@@ -1,17 +1,18 @@
 package com.company.problems.ctci.LinkedLists
 
+import com.company.problems.ctci.Utils.Node
 import java.lang.StringBuilder
 import java.util.*
 import kotlin.collections.HashMap
 
 object RemoveDups {
 
-    fun removeDups() {
+    fun removeDups(head: Node) {
         var hashSet: HashSet<Int> = HashSet()
 
-        if (SinglyLinkedList.head != null) {
-            var prev = SinglyLinkedList.head
-            var curr = SinglyLinkedList.head
+        if (head != null) {
+            var prev = head
+            var curr: Node? = head
 
             while (curr != null) {
                 if (!hashSet.contains(curr.value)) {
@@ -26,14 +27,14 @@ object RemoveDups {
     }
 
 
-    fun removeDupsWithoutBuffer() {
+    fun removeDupsWithoutBuffer(head: Node) {
         var sb = StringBuilder("s")
         (sb.indices).forEach {
 
         }
         println(sb.toString() == "")
         println(String(sb) == "")
-        var current = SinglyLinkedList.head!!
+        var current = head!!
         while (current.next != null) {
             var runner = current
             while (runner.next != null) {

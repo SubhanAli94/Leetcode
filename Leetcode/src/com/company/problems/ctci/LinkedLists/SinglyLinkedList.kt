@@ -1,14 +1,10 @@
 package com.company.problems.ctci.LinkedLists
 
+import com.company.problems.ctci.Utils.Node
 import java.lang.Exception
 import java.lang.NullPointerException
 
-object SinglyLinkedList {
-
-    class Node(value: Int) {
-        var value: Int = value
-        var next: Node? = null
-    }
+class SinglyLinkedList {
 
     var head: Node? = null
 
@@ -42,14 +38,6 @@ object SinglyLinkedList {
         } else {
             throw EmptyListException()
         }
-    }
-
-    fun nodeAtTail(node: Node): Node {
-        var n: Node? = node
-        while (n!!.next != null) {
-            n = n.next
-        }
-        return n
     }
 
     fun addAtStart(n: Int, head: Node? = null): Node {
@@ -108,29 +96,40 @@ object SinglyLinkedList {
         }
     }
 
-    fun displayLinkedList(head: Node?) {
-        if (head != null) {
-            var n = head
-            while (n!!.next != null) {
+    companion object {
+        fun displayLinkedList(head: Node?) {
+            if (head != null) {
+                var n = head
+                while (n!!.next != null) {
+                    print(" " + n.value + " ")
+                    n = n.next
+                }
                 print(" " + n.value + " ")
+            } else {
+                throw NullPointerException("Head is set to null. LinkedList is empty")
+            }
+        }
+
+
+        fun length(node: Node): Int {
+            // 1 1 1
+            var count = 0
+            var n: Node? = node
+
+            while (n != null) {
+                n = n.next
+                count++
+            }
+            return count
+        }
+
+        fun nodeAtTail(node: Node): Node {
+            var n: Node? = node
+            while (n!!.next != null) {
                 n = n.next
             }
-            print(" " + n.value + " ")
-        } else {
-            throw NullPointerException("Head is set to null. LinkedList is empty")
+            return n
         }
-    }
-
-    fun length(node: Node): Int {
-        // 1 1 1
-        var count = 0
-        var n: Node? = node
-
-        while (n != null) {
-            n = n.next
-            count++
-        }
-        return count
     }
 
     class EmptyListException : Exception("Linked List is empty")

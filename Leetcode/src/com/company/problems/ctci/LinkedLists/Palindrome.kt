@@ -1,13 +1,14 @@
 package com.company.problems.ctci.LinkedLists
 
+import com.company.problems.ctci.Utils.Node
 import java.util.*
 
 object Palindrome {
-    fun palindromeReverseAndCompare(node: SinglyLinkedList.Node): Boolean {
+    fun palindromeReverseAndCompare(node: Node): Boolean {
 
         if (node.next == null) return true
         var reversedNode = reverseAndClone(node)
-        var tempNode: SinglyLinkedList.Node? = node
+        var tempNode: Node? = node
 
         while (reversedNode != null && tempNode != null) {
             when {
@@ -23,12 +24,12 @@ object Palindrome {
         return tempNode == null && reversedNode == null
     }
 
-    private fun reverseAndClone(node: SinglyLinkedList.Node): SinglyLinkedList.Node? {
-        var tempNode: SinglyLinkedList.Node? = node
-        var result: SinglyLinkedList.Node? = null
+    private fun reverseAndClone(node: Node): Node? {
+        var tempNode: Node? = node
+        var result: Node? = null
 
         while (tempNode != null) {
-            var newNode = SinglyLinkedList.Node(tempNode.value)
+            var newNode = Node(tempNode.value)
             newNode.next = result
             result = newNode
 
@@ -37,15 +38,15 @@ object Palindrome {
         return result
     }
 
-    fun palindromeIterative(node: SinglyLinkedList.Node): Boolean {
+    fun palindromeIterative(node: Node): Boolean {
 
         if (node.next == null) return true
         if (node.next?.next == null) return node.value == node.next?.value
 
-        var fastRunner: SinglyLinkedList.Node? = node
-        var slowRunner: SinglyLinkedList.Node? = node
+        var fastRunner: Node? = node
+        var slowRunner: Node? = node
 
-        var stack = Stack<SinglyLinkedList.Node>()
+        var stack = Stack<Node>()
 
         while (fastRunner?.next != null) {
 
@@ -68,7 +69,7 @@ object Palindrome {
         return true
     }
 
-    fun palindromeRecursive(node: SinglyLinkedList.Node, length: Int): Boolean {
+    fun palindromeRecursive(node: Node, length: Int): Boolean {
         when (length) {
             0 -> return false
             1 -> return true
@@ -80,9 +81,9 @@ object Palindrome {
 
     //1 2 1
     //1 1
-    data class Result(var node: SinglyLinkedList.Node?, var result: Boolean)
+    data class Result(var node: Node?, var result: Boolean)
 
-    private fun palindromeRecurseCall(node: SinglyLinkedList.Node?, length: Int): Result {
+    private fun palindromeRecurseCall(node: Node?, length: Int): Result {
         when {
             node == null || length == 0 -> return Result(node, true)
             length == 1 -> return Result(node.next, true)

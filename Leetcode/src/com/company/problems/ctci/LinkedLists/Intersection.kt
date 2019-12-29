@@ -1,7 +1,9 @@
 package com.company.problems.ctci.LinkedLists
 
+import com.company.problems.ctci.Utils.Node
+
 object Intersection {
-    fun intersection(n0: SinglyLinkedList.Node, n1: SinglyLinkedList.Node): SinglyLinkedList.Node? {
+    fun intersection(n0: Node, n1: Node): Node? {
         var l0 = SinglyLinkedList.length(n0)
         var l1 = SinglyLinkedList.length(n1)
 
@@ -9,8 +11,8 @@ object Intersection {
         var n2lastNode = SinglyLinkedList.nodeAtTail(n1)
 
         if (n1lastNode == n2lastNode) {
-            var localN0: SinglyLinkedList.Node? = n0
-            var localN1: SinglyLinkedList.Node? = n1
+            var localN0: Node? = n0
+            var localN1: Node? = n1
             when {
                 l0 > l0 -> localN0 = chopOff(n0, l0 - l1)
                 l0 < l1 -> localN1 = chopOff(n1, l1 - l0)
@@ -26,7 +28,7 @@ object Intersection {
         }
     }
 
-    private fun chopOff(n: SinglyLinkedList.Node, diff: Int): SinglyLinkedList.Node {
+    private fun chopOff(n: Node, diff: Int): Node {
         var d = diff
         var tempN = n
         while (d != 0) {
