@@ -2,41 +2,35 @@ package com.company.problems.ctci.StacksAndQueues
 
 import com.company.problems.ctci.Utils.Node
 import java.lang.NullPointerException
+import kotlin.math.min
 
-class StackWithMin : Stack() {
+class MinNode(var value: Int, var next: MinNode? = null, var min: Int)
 
-    private var stack = Stack()
+class StackWithMin {
+    protected var head: MinNode? = null
 
-    override fun push(value: Int) {
-
+    open fun push(value: Int) {
         when (head) {
-            null -> {
-                head = Node(value)
-                stack.push(value)
-            }
+            null -> head = MinNode(value, min = value)
             else -> {
                 var temp = head
-                head = Node(value)
-                head!!.next = temp
-
-                if (stack.peek()!!.value > value) {
-                    stack.push(value)
-                }
+                var min = min(head!!.min, value)
+                head = MinNode(value, temp, min)
             }
         }
     }
 
-    override fun pop() {
-        if (!stack.isEmpty() && !isEmpty()) {
-            if (stack.peek()!!.value == peek()!!.value) {
-                stack.pop()
-            }
-        }
+    open fun pop() {
+        head = head?.next
+    }
 
-        super.pop()
+    fun peek(): MinNode? {
+        return head
     }
 
     fun min(): Int? {
-        return stack.peek()?.value
+        return head?.min
     }
+
+
 }
