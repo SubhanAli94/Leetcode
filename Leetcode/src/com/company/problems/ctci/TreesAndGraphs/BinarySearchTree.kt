@@ -1,19 +1,18 @@
 package com.company.problems.ctci.TreesAndGraphs
 
-class Node(var key: Int, var left: Node? = null, var right: Node? = null)
-class BinarySearchTree(var rootNode: Node) {
+class BinarySearchTree(var rootNode: TreeNode) {
 
-    fun insert(key: Int, root: Node) {
+    fun insert(key: Int, root: TreeNode) {
         if (rootNode == null) {
-            rootNode = Node(key)
+            rootNode = TreeNode(key)
         } else {
             insertKey(key, root)
         }
     }
 
-    private fun insertKey(key: Int, root: Node?): Node {
+    private fun insertKey(key: Int, root: TreeNode?): TreeNode {
         if (root == null) {
-            return Node(key)
+            return TreeNode(key)
         }
 
         if (key <= root.key) {
