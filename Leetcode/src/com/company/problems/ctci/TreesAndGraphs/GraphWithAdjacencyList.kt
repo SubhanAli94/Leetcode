@@ -1,7 +1,7 @@
 package com.company.problems.ctci.TreesAndGraphs
 
 class GraphWithAdjacencyList(var hashMap: HashMap<Int, ArrayList<Int>> = HashMap()) {
-    fun addNeighbour(src: Int, dest: Int) {
+    fun addEdge(src: Int, dest: Int) {
         if (hashMap.containsKey(src) && hashMap.containsKey(dest)) {
             addElement(hashMap[src]!!, dest)
             addElement(hashMap[dest]!!, src)
