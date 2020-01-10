@@ -1,8 +1,8 @@
 package com.company.problems.ctci.TreesAndGraphs
 
-class GraphNode(var name: String, var neighbours: ArrayList<GraphNode> = ArrayList())
+class GraphNode(var name: String, var neighbours: ArrayList<GraphNode> = ArrayList(), var visited: Boolean = false)
 class DynamicGraphWithAdjacencyList() {
-    private var nodes = ArrayList<GraphNode>()
+    var nodes = ArrayList<GraphNode>()
 
     fun addFriend(srcPersonName: String, friendName: String) {
         var srcNode = nodes.find { it.name == srcPersonName }
