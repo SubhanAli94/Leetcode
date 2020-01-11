@@ -1,7 +1,7 @@
 package com.company.problems.ctci.TreesAndGraphs.problems
 
-import com.company.problems.ctci.TreesAndGraphs.BreadthFirstSearch
 import com.company.problems.ctci.TreesAndGraphs.GraphNode
+import com.company.problems.ctci.TreesAndGraphs.State
 import java.util.*
 
 class RouteBetweenNodes {
@@ -21,15 +21,20 @@ class RouteBetweenNodes {
 
         while (!queue.isEmpty()) {
             var node = queue.remove()
-            if (node.name == destNode.name) {
-                println("Route Exists!!")
-                return
-            } else {
-                node.neighbours.filter { !it.visited }.forEach {
-                    it.visited = true
+
+            node.neighbours.forEach {
+                if (it.state == State.Unvisited) {
+                    if (it.name == destNode.name) {
+                        println("Route Exists!!")
+                        return
+                    }
+
+                    it.state = State.Visiting
                     queue.add(it)
                 }
             }
+
+            node.state = State.Visited
         }
 
         println("Route Does Not Exists")
@@ -39,11 +44,16 @@ class RouteBetweenNodes {
         if (srcNode == null) return false
         if (srcNode.name == destNode.name) return true
 
+        srcNode.state = State.Visiting
+
         srcNode.neighbours.forEach {
-            var found = dfs(destNode, it)
-            if (found) return true
+            if (it.state == State.Unvisited) {
+                var found = dfs(destNode, it)
+                if (found) return true
+            }
         }
 
+        srcNode.state = State.Visited
         return false
     }
 }
