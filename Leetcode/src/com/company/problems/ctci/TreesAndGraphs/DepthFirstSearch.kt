@@ -5,6 +5,7 @@ class DepthFirstSearch {
         if (root.name == friendName) print("Found!!")
         if (root.neighbours.size == 0) print("Not Found!!")
         else {
+
             search(friendName, root)
         }
     }
@@ -17,11 +18,9 @@ class DepthFirstSearch {
         if (root.neighbours.size == 0) {
             return false
         }
-
-
-        root.visited = true
+        root.state = State.Visiting
         root.neighbours.forEach {
-            if (!it.visited) {
+            if (it.state == State.Unvisited) {
                 var found = search(friendName, it)
                 if (found) {
                     return true
@@ -29,6 +28,7 @@ class DepthFirstSearch {
             }
         }
 
+        root.state = State.Visited
         return false
     }
 }
