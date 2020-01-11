@@ -6,19 +6,22 @@ class BreadthFirstSearch {
     fun searchFriend(personName: String, root: GraphNode) {
         if (personName == root.name) print("Found!!")
         var queue: Queue<GraphNode> = LinkedList<GraphNode>()
-        root.visited = true
+        root.state = State.Visited
         queue.add(root)
         while (!queue.isEmpty()) {
             var node = queue.remove()
-            if (node.name == personName) {
-                print("Found!!")
-            } else {
-                var l = node.neighbours.filter { !it.visited }
-                l.forEach {
-                    it.visited = true
+
+            node.neighbours.forEach {
+                if (it.state == State.Unvisited) {
+                    if (it.name == personName) {
+                        print("Found!!")
+                        return
+                    }
+                    it.state = State.Visiting
                     queue.add(it)
                 }
             }
+            node.state = State.Visited
         }
     }
 }
