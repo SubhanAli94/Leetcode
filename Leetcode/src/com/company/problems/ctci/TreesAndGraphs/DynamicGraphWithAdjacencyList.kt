@@ -1,6 +1,7 @@
 package com.company.problems.ctci.TreesAndGraphs
 
-class GraphNode(var name: String, var neighbours: ArrayList<GraphNode> = ArrayList(), var visited: Boolean = false)
+enum class State { Visited, Visiting, Unvisited }
+class GraphNode(var name: String, var neighbours: ArrayList<GraphNode> = ArrayList(), var state: State = State.Unvisited)
 class DynamicGraphWithAdjacencyList() {
     var nodes = ArrayList<GraphNode>()
 
